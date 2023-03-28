@@ -22,7 +22,10 @@ public class House extends Building {
     return residents.size();
   }
 
-  /**  */
+  /** 
+   * resident moves into house
+   * @param name name of resident 
+  */
   public void moveIn(String name) {
     if (this.residents.contains(name)) { // already in building
       throw new RuntimeException(name + " is already onboard " + this.name);
@@ -31,6 +34,10 @@ public class House extends Building {
   System.out.println(name + " successfully moved into " + this.name); 
   }
   
+  /** 
+   * removes resident out of House
+   * @param name name of resident to move out
+  */
   public String moveOut(String name) {
     if ((!this.residents.contains(name))) { // not resident of building
       throw new RuntimeException(name + " is not a resident of " + this.name);
