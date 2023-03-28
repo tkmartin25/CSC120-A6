@@ -5,7 +5,7 @@ public class House extends Building {
   private ArrayList<String> residents; 
   private boolean hasDiningRoom;
 
-  public House(String name, String address, int nFloors, ArrayList<String> residents, boolean hasDiningRoom) {
+  public House(String name, String address, int nFloors, boolean hasDiningRoom){
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
     this.hasDiningRoom = hasDiningRoom;
@@ -28,7 +28,7 @@ public class House extends Building {
   */
   public void moveIn(String name) {
     if (this.residents.contains(name)) { // already in building
-      throw new RuntimeException(name + " is already onboard " + this.name);
+      throw new RuntimeException(name + " is already a resident of " + this.name);
     }
     this.residents.add(name); // successfully moved in
   System.out.println(name + " successfully moved into " + this.name); 
@@ -56,9 +56,14 @@ public class House extends Building {
       return false;
     }
   }
-
+  
   public static void main(String[] args) {
-    new House();
+    House myHouse = new House("Chapin House", "3 Chapin Way", 4, false);
+    myHouse.moveIn("Teddy Martin");
+    myHouse.moveIn("Tejas Kumaran"); 
+  
+
   }
 
 }
+
