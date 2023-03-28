@@ -28,10 +28,10 @@ public class House extends Building {
   */
   public void moveIn(String name) {
     if (this.residents.contains(name)) { // already in building
-      throw new RuntimeException(name + " is already a resident of " + this.name);
+      throw new RuntimeException(name + " is already a resident of " + this.name + ".");
     }
     this.residents.add(name); // successfully moved in
-  System.out.println(name + " successfully moved into " + this.name); 
+    System.out.println(name + " successfully moved into " + this.name + "."); 
   }
   
   /** 
@@ -40,10 +40,16 @@ public class House extends Building {
   */
   public String moveOut(String name) {
     if ((!this.residents.contains(name))) { // not resident of building
-      throw new RuntimeException(name + " is not a resident of " + this.name);
-  }
-  this.residents.remove(name); // successfully moves out
-  return name;
+      throw new RuntimeException(name + " is not a resident of " + this.name + ".");
+    }
+    else if (name == "Tejas Kumaran") {
+      System.out.println("Tejas Kumaran cannot leave " + this.name + ".");
+    }
+    else {
+      System.out.println(name + " has moved out of " + this.name + ".");
+      this.residents.remove(name); 
+    } // successfully moves out
+    return name;
   }
 
   /** returns boolean of whether or not someone is a resident of a house
@@ -51,8 +57,10 @@ public class House extends Building {
    */
   public boolean isResident(String person) {
     if ((this.residents.contains(person))) {
+      System.out.println(person + " is a resident of " + this.name + ".");
       return true;
     } else {
+      System.out.println(person + " is not a resident of " + this.name + ".");
       return false;
     }
   }
@@ -61,7 +69,10 @@ public class House extends Building {
     House myHouse = new House("Chapin House", "3 Chapin Way", 4, false);
     myHouse.moveIn("Teddy Martin");
     myHouse.moveIn("Tejas Kumaran"); 
-  
+    myHouse.moveIn("Anna-Lee Thompson");
+    myHouse.isResident("Tejas Kumaran");
+    myHouse.moveOut("Tejas Kumaran");
+    myHouse.moveOut("Teddy Martin");
 
   }
 
