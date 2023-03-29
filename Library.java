@@ -41,9 +41,10 @@ public class Library extends Building {
    * @param title title by author of book to be checked out
   */
   public void checkOut(String title) {
-    if (!this.collection.get(title)) {
+    if (!this.isAvailable(title)) {
       throw new RuntimeException(title + " is already checked out at " + this.name + ".");
     }
+    System.out.println(title + " was successfully checked out at " + this.name + ".");
     this.collection.replace(title, true, false);
   }
 
@@ -52,7 +53,7 @@ public class Library extends Building {
    * @param title title by author of book to be returned
   */
   public void returnBook(String title) {
-    if (this.collection.get(title)) {
+    if (this.isAvailable(title)) {
       throw new RuntimeException(title + " is not checked out at " + this.name + ".");
     }
     System.out.println(title + " was successfully returned to " + this.name + ".");
@@ -95,7 +96,6 @@ public class Library extends Building {
     Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
     Neilson.returnBook("Salt to the Sea by Ruta Sepetys");
     Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
-
   }
   
 }
