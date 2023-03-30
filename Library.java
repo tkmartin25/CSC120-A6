@@ -60,6 +60,11 @@ public class Library extends Building {
     this.collection.replace(title, false, true);
   }
 
+  /**
+   * tells user if a book is in the library's collectino
+   * @param title
+   * @return boolean, whether or not book is in collection
+   */
   public boolean containsTitle(String title) { // returns true if the title appears as a key in the Libary's collection, false otherwise
     if (this.collection.containsKey(title)) {
       System.out.println(title + " is part of the collection at " + this.name + ".");
@@ -71,6 +76,11 @@ public class Library extends Building {
     }
   }
   
+  /**
+   * tells user whether or not a book is available to be checked out
+   * @param title
+   * @return true if title is currently available, false if not available
+   */
   public boolean isAvailable(String title) { // returns true if the title is currently available, false otherwise
     if (this.collection.get(title) == true) {
       System.out.println(title + " is available at " + this.name + ".");
@@ -82,9 +92,14 @@ public class Library extends Building {
     }
   }
 
+  /**
+   * prints all titles and their checked out status in the collection
+   */
   public void printCollection() { // prints out the entire collection in an easy-to-read way (including checkout status)
     System.out.println(collection.entrySet());
   }
+
+  /** for testing */
   public static void main(String[] args) {
     Library Neilson = new Library("Neilson Library", "Smith College", 4);
     Neilson.addTitle("Salt to the Sea by Ruta Sepetys");

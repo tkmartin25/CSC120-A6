@@ -10,52 +10,52 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ## Assignment Points:
 
-__X___ 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the `Building` class.
+__**YES**___ 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the `Building` class.
 
 ### Level 1: `House.java` (3 pts)
 
-___X__ 1 pt: The `House` class includes the requested attributes
+___**YES**__ 1 pt: The `House` class includes the requested attributes
 
-___X__ 1 pt: The `House` class implements the requested accessors
+___**YES**__ 1 pt: The `House` class implements the requested accessors
 
-__X___ 1 pt: The `House` class implements the requested additional methods (`moveIn(...)`, `moveOut(...)`, and `isResident(...)`)
+__**YES**__ 1 pt: The `House` class implements the requested additional methods (`moveIn(...)`, `moveOut(...)`, and `isResident(...)`)
 
 ### Level 2: `Library.java` (3 pts)
 
-____X_ 1 pt: The `Library` class includes the requested attributes
+____**YES**_ 1 pt: The `Library` class includes the requested attributes
 
-___X__ 1 pt: The `Library` class implements the requested methods to add / remove or check out / return titles
+__**YES**__ 1 pt: The `Library` class implements the requested methods to add / remove or check out / return titles
 
-____X_ 1 pt: The `Library` class implements the requested additional methods (`containsTitle(...)`, `isAvailable(...)`, and `printCollection()`)
+____**PART** 1 pt: The `Library` class implements the requested additional methods (`containsTitle(...)`, `isAvailable(...)`, and `printCollection()`)
 
 ### Level 3: `Cafe.java` (3 pts)
 
-__X___ 1 pt: The `Cafe` class includes the requested attributes
+__**YES**___ 1 pt: The `Cafe` class includes the requested attributes
 
-____X_ 1 pt: The `Cafe` class keeps the inventory up to date, based on sales
+____**YES**_ 1 pt: The `Cafe` class keeps the inventory up to date, based on sales
 
-__X___ 1 pt: The `Cafe` class uses the `restock(...)` method to avoid running out of inventory.
+__**YES**___ 1 pt: The `Cafe` class uses the `restock(...)` method to avoid running out of inventory.
 
 
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+__**YES**___ 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+__**YES**___ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__**YES**___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      ___**YES**__ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      ___**YES**__ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      ___**YES**_ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      __**YES**___ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      __**YES**___ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+__**YES**___ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+_**YES**____ 1 pt: `reflection.md` contains your reflection on the assignment
