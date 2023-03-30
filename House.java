@@ -1,10 +1,21 @@
 import java.util.ArrayList;
 
-/* This is a stub for the House class */
+/**
+ * House class is an extension of building class
+ */
 public class House extends Building {
+  /** names of the residents that live in the house */
   private ArrayList<String> residents; 
+  /** whether or not the house has a dining hall */
   private boolean hasDiningRoom;
 
+  /**
+   * creates a house with building attributes but also names of residents and dining room info
+   * @param name
+   * @param address
+   * @param nFloors
+   * @param hasDiningRoom
+   */
   public House(String name, String address, int nFloors, boolean hasDiningRoom){
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
@@ -25,7 +36,7 @@ public class House extends Building {
   /** 
    * resident moves into house
    * @param name name of resident 
-  */
+   */
   public void moveIn(String name) {
     if (this.residents.contains(name)) { // already in building
       throw new RuntimeException(name + " is already a resident of " + this.name + ".");
@@ -37,7 +48,7 @@ public class House extends Building {
   /** 
    * removes resident out of House
    * @param name name of resident to move out
-  */
+   */
   public String moveOut(String name) {
     if ((!this.residents.contains(name))) { // not resident of building
       throw new RuntimeException(name + " is not a resident of " + this.name + ".");
@@ -65,6 +76,7 @@ public class House extends Building {
     }
   }
   
+  /** for testing */
   public static void main(String[] args) {
     House myHouse = new House("Chapin House", "3 Chapin Way", 4, false);
     myHouse.moveIn("Teddy Martin");
