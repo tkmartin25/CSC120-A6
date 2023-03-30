@@ -1,12 +1,18 @@
-/* This is a stub for the Cafe class */
+/**
+ *  cafe class is an extension of the building class
+ */
 public class Cafe extends Building {
-    private int nCoffeeOunces; // The number of ounces of coffee remaining in inventory
-    private int nSugarPackets; // The number of sugar packets remaining in inventory
-    private int nCreams; // The number of "splashes" of cream remaining in inventory
-    private int nCups; // The number of cups remaining in inventory
+    /** the number of ounces of coffee remaining in inventory */
+    private int nCoffeeOunces; 
+    /** the number of sugar packets remaining in inventory */
+    private int nSugarPackets; 
+    /** the number of "splashes" of cream remaining in inventory */
+    private int nCreams; 
+    /** the number of cups remaining in inventory */
+    private int nCups;
 
     /**
-     * Cafe constructor
+     * Create a cafe that can sell coffee and update inventory
      * @param name
      * @param address
      * @param nFloors
@@ -57,6 +63,13 @@ public class Cafe extends Building {
         System.out.println(this.name + " currently has " + this.nCups + " cup(s), " + this.nCoffeeOunces + " coffee ounce(s), " + this.nSugarPackets + " sugar packet(s), " + "and " + this.nCreams + " cream(s) in its inventory.");
     }
 
+    /**
+     * restocks inventory by specified amounts of parameters
+     * @param nCoffeeOunces
+     * @param nSugarPackets
+     * @param nCreams
+     * @param nCups
+     */
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
         this.nCoffeeOunces = this.nCoffeeOunces + nCoffeeOunces;
         this.nSugarPackets = this.nSugarPackets + nSugarPackets;
@@ -66,6 +79,7 @@ public class Cafe extends Building {
         this.printInventory();
     }
     
+    /** for testing */
     public static void main(String[] args) {
         Cafe Ediya = new Cafe("Ediya Coffee", "5 Mapogu Way", 1, 30, 20, 10, 0);
         Ediya.sellCoffee(3, 1, 1);
