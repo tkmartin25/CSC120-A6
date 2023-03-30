@@ -10,31 +10,31 @@ Listed below are various aspects of the assignment.  When you turn in your work,
 
 ## Assignment Points:
 
-_____ 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the `Building` class.
+__X___ 1 pt: The `House`, `Library`, and `Cafe` classes all `extend` the `Building` class.
 
 ### Level 1: `House.java` (3 pts)
 
-_____ 1 pt: The `House` class includes the requested attributes
+___X__ 1 pt: The `House` class includes the requested attributes
 
-_____ 1 pt: The `House` class implements the requested accessors
+___X__ 1 pt: The `House` class implements the requested accessors
 
-_____ 1 pt: The `House` class implements the requested additional methods (`moveIn(...)`, `moveOut(...)`, and `isResident(...)`)
+__X___ 1 pt: The `House` class implements the requested additional methods (`moveIn(...)`, `moveOut(...)`, and `isResident(...)`)
 
 ### Level 2: `Library.java` (3 pts)
 
-_____ 1 pt: The `Library` class includes the requested attributes
+____X_ 1 pt: The `Library` class includes the requested attributes
 
-_____ 1 pt: The `Library` class implements the requested methods to add / remove or check out / return titles
+___X__ 1 pt: The `Library` class implements the requested methods to add / remove or check out / return titles
 
-_____ 1 pt: The `Library` class implements the requested additional methods (`containsTitle(...)`, `isAvailable(...)`, and `printCollection()`)
+____X_ 1 pt: The `Library` class implements the requested additional methods (`containsTitle(...)`, `isAvailable(...)`, and `printCollection()`)
 
 ### Level 3: `Cafe.java` (3 pts)
 
-_____ 1 pt: The `Cafe` class includes the requested attributes
+__X___ 1 pt: The `Cafe` class includes the requested attributes
 
-_____ 1 pt: The `Cafe` class keeps the inventory up to date, based on sales
+____X_ 1 pt: The `Cafe` class keeps the inventory up to date, based on sales
 
-_____ 1 pt: The `Cafe` class uses the `restock(...)` method to avoid running out of inventory.
+__X___ 1 pt: The `Cafe` class uses the `restock(...)` method to avoid running out of inventory.
 
 
 
