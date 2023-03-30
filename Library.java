@@ -1,9 +1,16 @@
 import java.util.Hashtable;
 
-/* This is a stub for the Library class */
+/* library class extends building class */
 public class Library extends Building {
+  /** hashtable to store books and check-out status */
   private Hashtable<String, Boolean> collection;
 
+  /**
+   * creates library that has building attributes and a collection of titles
+   * @param name
+   * @param address
+   * @param nFloors
+   */
   public Library(String name, String address, int nFloors) {
     super(name, address, nFloors);
     this.collection = new Hashtable<String, Boolean>();
