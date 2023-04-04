@@ -79,11 +79,16 @@ public class Cafe extends Building {
         this.printInventory();
     }
     
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee(s, sp, c)\n + restock(co, s, c, cu)\n + printInventory()");
+      }
+
     /** for testing */
     public static void main(String[] args) {
         Cafe Ediya = new Cafe("Ediya Coffee", "5 Mapogu Way", 1, 30, 20, 10, 0);
         Ediya.sellCoffee(3, 1, 1);
         Ediya.printInventory();
+        Ediya.showOptions();
     }
     
 }

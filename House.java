@@ -75,6 +75,10 @@ public class House extends Building {
       return false;
     }
   }
+
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + moveIn(n)\n + moveOut(n)");
+  }
   
   /** for testing */
   public static void main(String[] args) {
@@ -85,6 +89,7 @@ public class House extends Building {
     myHouse.isResident("Tejas Kumaran");
     myHouse.moveOut("Tejas Kumaran");
     myHouse.moveOut("Teddy Martin");
+    myHouse.showOptions();
 
   }
 
