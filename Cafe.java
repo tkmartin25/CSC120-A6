@@ -38,7 +38,7 @@ public class Cafe extends Building {
      */
     public void sellCoffee(int size, int nSugarPackets, int nCreams) {
         if (size > this.nCoffeeOunces) {
-            this.restock(50, 0, 0, 0);
+            this.restock(50);
         }
         if (nSugarPackets > this.nSugarPackets) {
             this.restock(0, 50, 0, 0);
@@ -54,6 +54,18 @@ public class Cafe extends Building {
         this.nCreams = this.nCreams - nCreams;
         this.nCups = this.nCups - 1;
         System.out.println("You sold a coffee with the size of " + size + ", " + nSugarPackets + " sugar packet(s), " + "and " + nCreams + " cream(s).");
+    }
+
+    public void sellCoffee(int size, int nCups) {
+        if (size > this.nCoffeeOunces) {
+            this.restock(50);
+        }
+        if (this.nCups < nCups) {
+            this.restock(0, 0, 0, 100);
+        }
+        this.nCoffeeOunces = this.nCoffeeOunces - size;
+        this.nCups = this.nCups - nCups;
+        System.out.println("You sold " + nCups + " cups of coffee with the size of " + size + ".");
     }
 
     /**
@@ -78,6 +90,12 @@ public class Cafe extends Building {
         System.out.println("The inventory has been updated.");
         this.printInventory();
     }
+
+    private void restock(int nCoffeeOunces) {
+        this.nCoffeeOunces = this.nCoffeeOunces + nCoffeeOunces;
+        System.out.println("The inventory has been updated.");
+        this.printInventory();
+    }
     
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee(s, sp, c)\n + restock(co, s, c, cu)\n + printInventory()");
@@ -87,6 +105,7 @@ public class Cafe extends Building {
     public static void main(String[] args) {
         Cafe Ediya = new Cafe("Ediya Coffee", "5 Mapogu Way", 1, 30, 20, 10, 0);
         Ediya.sellCoffee(3, 1, 1);
+        Ediya.sellCoffee(3, 2);
         Ediya.printInventory();
         Ediya.showOptions();
     }
