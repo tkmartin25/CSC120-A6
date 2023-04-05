@@ -56,6 +56,11 @@ public class Cafe extends Building {
         System.out.println("You sold a coffee with the size of " + size + ", " + nSugarPackets + " sugar packet(s), " + "and " + nCreams + " cream(s).");
     }
 
+    /**
+     * sells Coffee but simpler orders without sugar and cream, and also can sell multiple cups at once
+     * @param size
+     * @param nCups
+     */
     public void sellCoffee(int size, int nCups) {
         if (size > this.nCoffeeOunces) {
             this.restock(50);
@@ -91,12 +96,20 @@ public class Cafe extends Building {
         this.printInventory();
     }
 
+    /**
+     * overloading restock()
+     * restocks inventory for coffeeOunces and takes int as input
+     * @param nCoffeeOunces
+     */
     private void restock(int nCoffeeOunces) {
         this.nCoffeeOunces = this.nCoffeeOunces + nCoffeeOunces;
         System.out.println("The inventory has been updated.");
         this.printInventory();
     }
     
+    /**
+     * shows available actions to take at cafe
+     */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee(s, sp, c)\n + restock(co, s, c, cu)\n + printInventory()");
       }
