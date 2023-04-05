@@ -21,6 +21,10 @@ public class Library extends Building {
     System.out.println("You have built a library: 📖");
   }
 
+  /**
+   * goes to floor user-specified, depending or not if there is an elevator
+   * @param floorNum
+   */
   public void goToFloor(int floorNum) {
     if (this.activeFloor == -1) {
         throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -49,7 +53,7 @@ public class Library extends Building {
       }
     }
     }
-    
+
   /**
    * adds book to collection
    * @param title
@@ -139,6 +143,9 @@ public class Library extends Building {
     System.out.println(collection.entrySet());
   }
 
+  /**
+   * shows actions available at library
+   */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + checkOut(b)\n + returnBook(b)\n + addTitle(b\n + removeTitle(b)\n + printCollection()");
   }
