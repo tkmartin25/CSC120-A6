@@ -4,19 +4,52 @@ import java.util.Hashtable;
 public class Library extends Building {
   /** hashtable to store books and check-out status */
   private Hashtable<String, Boolean> collection;
+  private boolean hasElevator; 
+
 
   /**
    * creates library that has building attributes and a collection of titles
    * @param name
    * @param address
    * @param nFloors
+   * @param hasElevator
    */
-  public Library(String name, String address, int nFloors) {
+  public Library(String name, String address, int nFloors, boolean hasElevator) {
     super(name, address, nFloors);
+    this.hasElevator = hasElevator;
     this.collection = new Hashtable<String, Boolean>();
     System.out.println("You have built a library: 📖");
   }
 
+  public void goToFloor(int floorNum) {
+    if (this.activeFloor == -1) {
+        throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+    }
+    else if (floorNum < 1 || floorNum > this.nFloors) {
+        throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+    }
+    else if (floorNum == this.activeFloor) {
+        throw new RuntimeException("You are already on floor # " + floorNum);
+    }
+    else if (this.hasElevator == true) {
+      System.out.println("You took the elevator. You are now on floor #" + floorNum + " of " + this.name + ".");
+      this.activeFloor = floorNum;
+    }
+    else if (this.hasElevator == false) {
+      if (floorNum == this.activeFloor + 1) {
+        this.activeFloor = floorNum;
+        System.out.println("You are now on floor #" + floorNum + " of " + this.name + ".");
+      }
+      else if (floorNum == this.activeFloor - 1) {
+        this.activeFloor = floorNum;
+        System.out.println("You are now on floor #" + floorNum + " of " + this.name + ".");
+      }
+      else {
+        throw new RuntimeException("This building does not have an elevator. You can only go up or down one floor at a time.");
+      }
+    }
+    }
+    
   /**
    * adds book to collection
    * @param title
@@ -111,7 +144,7 @@ public class Library extends Building {
   }
   /** for testing */
   public static void main(String[] args) {
-    Library Neilson = new Library("Neilson Library", "Smith College", 4);
+    Library Neilson = new Library("Neilson Library", "Smith College", 4, true);
     Neilson.addTitle("Salt to the Sea by Ruta Sepetys");
     Neilson.addTitle("Madeline by Ludwig Bemelmans");
     Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
@@ -122,6 +155,9 @@ public class Library extends Building {
     Neilson.returnBook("Salt to the Sea by Ruta Sepetys");
     Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
     Neilson.showOptions();
+    Neilson.enter();
+    Neilson.goToFloor(2);
+    Neilson.goToFloor(6);
   }
   
 }
