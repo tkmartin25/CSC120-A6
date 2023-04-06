@@ -112,17 +112,38 @@ public class Cafe extends Building {
      */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + sellCoffee(s, sp, c)\n + restock(co, s, c, cu)\n + printInventory()");
-      }
+    }
+
+    /**
+    * does not permit movement off first floor
+    * @param floorNum
+    */
+    public void goToFloor(int floorNum) {
+        if (this.activeFloor == -1) {
+            throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+        }
+        else if (floorNum < 1 || floorNum > this.nFloors) {
+            throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+        }
+        else if (floorNum == this.activeFloor) {
+            throw new RuntimeException("You are already on floor # " + floorNum);
+        }
+        else if (floorNum > 1) {
+            System.out.println("Customers not permitted to go upstairs at " + this.name + ".");
+        }
+    }
 
     /** for testing */
     public static void main(String[] args) {
-        Cafe Ediya = new Cafe("Ediya Coffee", "5 Mapogu Way", 1, 30, 20, 10, 0);
+        Cafe Ediya = new Cafe("Ediya Coffee", "5 Mapogu Way", 2, 30, 20, 10, 0);
         Ediya.sellCoffee(3, 1, 1);
         Ediya.sellCoffee(3, 2);
         Ediya.restock(30.5, 2, 3, 4);
         Ediya.restock(30);
         Ediya.printInventory();
         Ediya.showOptions();
+        Ediya.enter();
+        Ediya.goToFloor(2);
     }
     
 }
