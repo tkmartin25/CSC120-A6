@@ -58,4 +58,4 @@ ___**YES**__ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
 __**YES**___ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-___**NO**__ 1 pt: `reflection.md` contains your reflection on the assignment
+___**YES**__ 1 pt: `reflection.md` contains your reflection on the assignment
