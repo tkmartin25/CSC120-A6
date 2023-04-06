@@ -149,6 +149,7 @@ public class Library extends Building {
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + checkOut(b)\n + returnBook(b)\n + addTitle(b\n + removeTitle(b)\n + printCollection()");
   }
+  
   /** for testing */
   public static void main(String[] args) {
     Library Neilson = new Library("Neilson Library", "Smith College", 4, true);

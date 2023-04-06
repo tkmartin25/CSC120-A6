@@ -11,6 +11,32 @@ public class House extends Building {
   /** whether or not the house has an elevator */
   private boolean hasElevator;
 
+  /**
+   * creates house, unknown name, address, and default 1 floor
+   */
+  public House(){
+    System.out.println("You have built a house: 🏠");
+  }
+
+  /**
+   * creates house with only name as input
+   * @param name
+   */
+  public House(String name){
+    this.name = name;
+    System.out.println("You have built a house: 🏠");
+  }
+
+  /**
+   * creates a house with building attributes but also names of residents and dining room info
+   * @param name
+   * @param address
+   * @param nFloors
+   */
+  public House(String name, String address, int nFloors){
+    super(name, address, nFloors);
+    System.out.println("You have built a house: 🏠");
+  }
 
   /**
    * creates a house with building attributes but also names of residents and dining room info
@@ -18,11 +44,12 @@ public class House extends Building {
    * @param address
    * @param nFloors
    * @param hasDiningRoom
+   * @param hasElevator
    */
   public House(String name, String address, int nFloors, boolean hasDiningRoom, boolean hasElevator){
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
-    this.hasDiningRoom = hasDiningRoom;
+    this.hasDiningRoom = hasDiningRoom; 
     this.hasElevator = hasElevator;
     System.out.println("You have built a house: 🏠");
   }
@@ -80,10 +107,17 @@ public class House extends Building {
     }
   }
 
+  /**
+   * shows actions available at house
+   */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + moveIn(n)\n + moveOut(n)");
   }
   
+  /**
+   * goes to floor levels depending on whether or not the house is known to have an elevator
+   * @param floorNum
+   */
   public void goToFloor(int floorNum) {
     if (this.activeFloor == -1) {
         throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
@@ -116,7 +150,7 @@ public class House extends Building {
   /** for testing */
   public static void main(String[] args) {
     House myHouse = new House("Chapin House", "3 Chapin Way", 4, false, false);
-    House Cutter = new House("Cutter House", "10 Elm Street", 4, false, true);
+    House Cutter = new House("Cutter House", "10 Elm Street", 4);
     myHouse.moveIn("Teddy Martin");
     myHouse.moveIn("Tejas Kumaran"); 
     myHouse.moveIn("Anna-Lee Thompson");
@@ -127,8 +161,12 @@ public class House extends Building {
     myHouse.enter();
     myHouse.goToFloor(2);
     Cutter.enter();
-    Cutter.goToFloor(4);
-
+    Cutter.goToFloor(2);
+    House myHouse2 = new House();
+    myHouse2.enter();
+    House westport = new House("Abby's House");
+    westport.enter();
+    westport.goUp();
   }
 
 }
