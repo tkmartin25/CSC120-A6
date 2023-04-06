@@ -200,6 +200,7 @@ public class Library extends Building {
     Neilson.enter();
     Neilson.goToFloor(2);
     Neilson.goToFloor(4);
+    System.out.println(Neilson.isAvailable("Salt to the Sea by Ruta Sepetys"));
     Neilson.checkOut("Salt to the Sea by Ruta Sepetys", "Harry Potter and the Philosopher's Stone", "Madeline by Ludwig Bemelmans");
     Neilson.returnBook("Salt to the Sea by Ruta Sepetys", "Harry Potter and the Philosopher's Stone", "Madeline by Ludwig Bemelmans");
     Neilson.checkOut("Salt to the Sea by Ruta Sepetys");

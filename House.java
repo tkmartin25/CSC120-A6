@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  * House class is an extension of building class
@@ -74,6 +75,24 @@ public class House extends Building {
     }
     this.residents.add(name); // successfully moved in
     System.out.println(name + " successfully moved into " + this.name + "."); 
+  }
+
+  /** 
+   * roommates moves into house at the same time
+   * @param name name of resident 
+   * @param name2 name of second resident, roommate
+   */
+  public void moveIn(String name, String name2) {
+    Vector<String> roommates = new Vector<String>(2);
+    roommates.addElement(name);
+    roommates.addElement(name2);
+    for (String roommate : roommates) {
+      if (this.residents.contains(roommate)) { // already in building
+        throw new RuntimeException(roommate + " is already a resident of " + this.name + ".");
+      }
+      this.residents.add(roommate); // successfully moved in
+      System.out.println(roommate + " successfully moved into " + this.name + "."); 
+    }
   }
   
   /** 
@@ -151,7 +170,7 @@ public class House extends Building {
   public static void main(String[] args) {
     House myHouse = new House("Chapin House", "3 Chapin Way", 4, false, false);
     House Cutter = new House("Cutter House", "10 Elm Street", 4);
-    myHouse.moveIn("Teddy Martin");
+    myHouse.moveIn("Teddy Martin", "Amelia Babb");
     myHouse.moveIn("Tejas Kumaran"); 
     myHouse.moveIn("Anna-Lee Thompson");
     myHouse.isResident("Tejas Kumaran");
