@@ -1,9 +1,11 @@
 import java.util.Hashtable;
+import java.util.Vector;
 
 /* library class extends building class */
 public class Library extends Building {
   /** hashtable to store books and check-out status */
   private Hashtable<String, Boolean> collection;
+  /** boolean for whether or not library has elevator */
   private boolean hasElevator; 
 
 
@@ -93,6 +95,26 @@ public class Library extends Building {
   }
 
   /**
+   * checks out up to 3 books to library at a time using book titles
+   * @param title title by author of book to be returned (1)
+   * @param title2 second title to be returned
+   * @param title3 third title to be returned
+  */
+  public void checkOut(String title, String title2, String title3) {
+    Vector<String> myBooks = new Vector<String>(3);
+    myBooks.addElement(title);
+    myBooks.addElement(title2);
+    myBooks.addElement(title3);
+    for (String book : myBooks) {
+      if (this.isAvailable(book) == false) {
+        throw new RuntimeException(book + " is already checked out at " + this.name + ".");
+      }
+      System.out.println(book + " was successfully checked out at " + this.name + ".");
+      this.collection.replace(book, true, false);
+    }
+  }
+
+  /**
    * returns book to library using book title
    * @param title title by author of book to be returned
   */
@@ -102,6 +124,26 @@ public class Library extends Building {
     }
     System.out.println(title + " was successfully returned to " + this.name + ".");
     this.collection.replace(title, false, true);
+  }
+
+  /**
+   * returns up to 3 books to library at a time using book titles
+   * @param title title by author of book to be returned (1)
+   * @param title2 second title to be returned
+   * @param title3 third title to be returned
+  */
+  public void returnBook(String title, String title2, String title3) {
+    Vector<String> returnBooks = new Vector<String>(3);
+    returnBooks.addElement(title);
+    returnBooks.addElement(title2);
+    returnBooks.addElement(title3);
+    for (String book : returnBooks) {
+      if (this.isAvailable(book)) {
+        throw new RuntimeException(book + " is not checked out at " + this.name + ".");
+      }
+      System.out.println(book + " was successfully returned to " + this.name + ".");
+      this.collection.replace(book, false, true);
+    }
   }
 
   /**
@@ -121,17 +163,15 @@ public class Library extends Building {
   }
   
   /**
-   * tells user whether or not a book is available to be checked out
+   * returns boolean whether or not a book is available to be checked out
    * @param title
    * @return true if title is currently available, false if not available
    */
   public boolean isAvailable(String title) { // returns true if the title is currently available, false otherwise
     if (this.collection.get(title) == true) {
-      System.out.println(title + " is available at " + this.name + ".");
       return true;
     }
     else {
-      System.out.println(title + " is not available at " + this.name + ".");
       return false;
     }
   }
@@ -149,23 +189,20 @@ public class Library extends Building {
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n + checkOut(b)\n + returnBook(b)\n + addTitle(b\n + removeTitle(b)\n + printCollection()");
   }
-  
+
   /** for testing */
   public static void main(String[] args) {
     Library Neilson = new Library("Neilson Library", "Smith College", 4, true);
     Neilson.addTitle("Salt to the Sea by Ruta Sepetys");
     Neilson.addTitle("Madeline by Ludwig Bemelmans");
-    Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
-    Neilson.containsTitle("Salt to the Sea by Ruta Sepetys");
-    Neilson.printCollection();
-    Neilson.checkOut("Salt to the Sea by Ruta Sepetys");
-    Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
-    Neilson.returnBook("Salt to the Sea by Ruta Sepetys");
-    Neilson.isAvailable("Salt to the Sea by Ruta Sepetys");
+    Neilson.addTitle("Harry Potter and the Philosopher's Stone");
     Neilson.showOptions();
     Neilson.enter();
     Neilson.goToFloor(2);
-    Neilson.goToFloor(6);
+    Neilson.goToFloor(4);
+    Neilson.checkOut("Salt to the Sea by Ruta Sepetys", "Harry Potter and the Philosopher's Stone", "Madeline by Ludwig Bemelmans");
+    Neilson.returnBook("Salt to the Sea by Ruta Sepetys", "Harry Potter and the Philosopher's Stone", "Madeline by Ludwig Bemelmans");
+    Neilson.checkOut("Salt to the Sea by Ruta Sepetys");
   }
   
 }
